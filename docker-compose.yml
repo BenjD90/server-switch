@@ -1,0 +1,14 @@
+version: '3'
+services:
+  starter:
+    build: ./
+    command: npm run dev
+    volumes:
+      - ./src:/home/app/src
+      - ./static:/home/app/static
+      - ./sample-conf/server-switch-conf.json:/conf/server-switch-conf.json
+    ports:
+      - 8088:8088
+      - 9101:9101
+    environment:
+      - NODE_ENV:development

@@ -1,0 +1,61 @@
+<html>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+					crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+</head>
+<body>
+<div class="col-6 mx-auto text-center">
+	<h2>Token en cours de vérification, allumage imminent.</h2>
+	<a href="../">Retour à l'accueil</a>
+</div>
+<script type="application/javascript">
+	$(document).ready(() => {
+		const token = document.location.href.substring(document.location.href.lastIndexOf('/') + 1);
+		jQuery.ajax({
+			url: '/emails/switch-on/' + token,
+			method: 'post',
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				try {
+					const err = JSON.parse(XMLHttpRequest.responseText);
+
+					let message = 'Erreur non déterminée : ' + err.code;
+					switch (err.code) {
+						case 'token-not-found':
+							message = 'Token non trouvé';
+							break;
+						case 'token-expired':
+							message = 'Token expiré';
+							break;
+						case 'server-is-on':
+							message = 'Le server est déjà allumé';
+							break;
+					}
+
+					Swal.fire(
+							'Erreur !',
+							message,
+							'error'
+					)
+					$('h2').html(message);
+				} catch(e) {
+					console.error(e);
+					Swal.fire(
+							'Erreur !',
+							'Erreur inconnue!',
+							'error'
+					)
+				}
+			}
+		}).done(() => {
+			Swal.fire(
+					'Allumé !',
+					'La demande d\'allumage est partie, vous pourrez accéder au serveur dans 1 à 2 minutes !',
+					'success'
+			);
+		})
+	});
+</script>
+</body>
+</html>

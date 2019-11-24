@@ -1,0 +1,61 @@
+<html>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+					crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+</head>
+<body>
+<div class="col-6 mx-auto text-center">
+	<h2> Selectionnez votre email</h2>
+	<form action="javascript:;">
+		<div class="form-group">
+			<select class="form-control" id="select">
+			</select>
+		</div>
+		<button type="submit" class="btn btn-primary">Envoyer un mail pour allumer le serveur</button>
+	</form>
+</div>
+<script type="text/javascript">
+	document.head.innerHTML = document.head.innerHTML + `<base href='${document.location}' />`;
+</script>
+<script type="application/javascript">
+	jQuery.ajax({
+		url: '/emails/authorized',
+		error: function (XMLHttpRequest, textStatus, errorThrown) {
+			console.error(errorThrown);
+			Swal.fire(
+					'Erreur !',
+					'Erreur au chargement!',
+					'error'
+			)
+		}
+	}).done((data) => {
+		for (const email of data.emails) {
+			$('#select').append(`<option value="${email}">${email}</option>`);
+		}
+	});
+
+	jQuery('form').on('submit', () => {
+		jQuery.ajax({
+			url: '/emails/' + jQuery('#select').val(),
+			method: 'post',
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				console.error(errorThrown);
+				Swal.fire(
+						'Erreur !',
+						'Erreur au chargement!',
+						'error'
+				)
+			}
+		}).done(() => {
+			Swal.fire(
+					'Envoyé !',
+					'Mail envoyé!',
+					'success'
+			);
+		})
+	})
+</script>
+</body>
+</html>
