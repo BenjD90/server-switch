@@ -6,8 +6,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --exec node -r ts-node/register --inspect=10000 -- src/index.ts",
-    "build": "rimraf dist/ && tsc && cp package.json dist/ && cp -r node_modules/ dist/ && cp -r static/ dist/",
-    "build:test": "rimraf dist/ && tsc --project tsconfig.test.json && copyfiles package.json test/fixtures/* dist/",
+    "build": "rm -rf dist/ && tsc && cp package.json dist/ && cp -r node_modules/ dist/ && cp -r static/ dist/",
+    "build:test": "rm -rf dist/ && tsc --project tsconfig.test.json && copyfiles package.json test/fixtures/* dist/",
     "start": "node dist/",
     "lint": "tslint  --project tsconfig.json 'src/**/*.ts'",
     "test": "npm run lint && npm run build:test && nyc ava --verbose --serial dist/test/ && nyc report --reporter=html",
