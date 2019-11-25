@@ -8,10 +8,13 @@ RUN yarn install
 COPY ./ ./
 RUN yarn run build
 
-RUN npm prune --production \
+RUN yarn install --production --ignore-scripts --prefer-offline \
   && rm -rf test \
   && find . -type f -name "*.d.ts" -exec rm {} \;
 
-RUN mv src dist
+RUN yarn cache clean
+
+RUN mv dist/src/* dist
+RUN rm -rf dist/test
 
 CMD ["node", "dist/index.js"]
