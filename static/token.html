@@ -14,7 +14,7 @@
 	$(document).ready(() => {
 		const token = document.location.href.substring(document.location.href.lastIndexOf('/') + 1);
 		jQuery.ajax({
-			url: '/emails/switch-on/' + token,
+			url: '../emails/switch-on/' + token,
 			method: 'post',
 			error: function (XMLHttpRequest, textStatus, errorThrown) {
 				try {

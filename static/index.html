@@ -21,7 +21,7 @@
 </script>
 <script type="application/javascript">
 	jQuery.ajax({
-		url: '/emails/authorized',
+		url: './emails/authorized',
 		error: function (XMLHttpRequest, textStatus, errorThrown) {
 			console.error(errorThrown);
 			Swal.fire(
@@ -38,7 +38,7 @@
 
 	jQuery('form').on('submit', () => {
 		jQuery.ajax({
-			url: '/emails/' + jQuery('#select').val(),
+			url: './emails/' + jQuery('#select').val(),
 			method: 'post',
 			error: function (XMLHttpRequest, textStatus, errorThrown) {
 				console.error(errorThrown);
