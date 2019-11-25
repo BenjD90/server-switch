@@ -2,7 +2,7 @@
   "name": "server-switch",
   "description": "An app to call route once on email authorised without db",
   "private": true,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --exec node -r ts-node/register --inspect=10000 -- src/index.ts",
