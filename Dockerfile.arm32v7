@@ -1,5 +1,7 @@
 FROM arm32v7/node:12.13.0-alpine
 
+RUN apk --update add python
+
 WORKDIR /home/app
 
 COPY package.json ./
