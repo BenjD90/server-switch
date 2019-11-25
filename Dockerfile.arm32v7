@@ -1,14 +1,17 @@
 FROM arm32v7/node:12.13.0-alpine
 
-RUN apk --update add python
-
 WORKDIR /home/app
 
 COPY package.json ./
 COPY yarn.lock ./
-RUN yarn install --prod
+RUN yarn install
 COPY ./ ./
 RUN yarn run build
 
+RUN npm prune --production \
+  && rm -rf test \
+  && find . -type f -name "*.d.ts" -exec rm {} \;
 
-CMD ["node", "dist/src/index.js"]
+RUN mv src dist
+
+CMD ["node", "dist/index.js"]
