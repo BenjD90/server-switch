@@ -18,6 +18,7 @@ export class EmailService {
 
 		return mm + '/' + dd + '/' + yyyy;
 	}
+
 	@Inject('logger')
 	private logger: N9Log;
 
@@ -103,7 +104,7 @@ export class EmailService {
 			this.logger.info(`Server is already available !`);
 			return false;
 		} catch (e) {
-			if (e.status === 404 || e.status === 401) return true;
+			if ([404, 401, 500, 502, 504].includes(e.status)) return true;
 			else throw e;
 		}
 	}
