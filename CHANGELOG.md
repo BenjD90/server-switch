@@ -1,9 +1,22 @@
+## Version [0.1.3](https://github.com/neo9/n9-node-microservice-skeleton/compare/0.1.2...0.1.3) (2019-11-26)
+
+
+### status
+
+* Fix check server unavailable status ([8b5ba81](https://github.com/neo9/n9-node-microservice-skeleton/commit/8b5ba81)) (Benjamin DANIEL)
+
+
+
 ## Version [0.1.2](https://github.com/neo9/n9-node-microservice-skeleton/compare/0.1.1...0.1.2) (2019-11-25)
 
 
 ### html
 
 * Fix relative path ([4eb4f9b](https://github.com/neo9/n9-node-microservice-skeleton/commit/4eb4f9b)) (Benjamin Daniel)
+
+### release
+
+* V 0.1.2 ([b2e6bfa](https://github.com/neo9/n9-node-microservice-skeleton/commit/b2e6bfa)) (Benjamin Daniel)
 
 
 
