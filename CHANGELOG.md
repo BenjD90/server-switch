@@ -1,5 +1,14 @@
+## Version [0.1.5](https://github.com/neo9/n9-node-microservice-skeleton/compare/0.1.4...0.1.5) (2020-04-05)
+
+
+
+
 ## Version [0.1.4](https://github.com/neo9/n9-node-microservice-skeleton/compare/0.1.3...0.1.4) (2020-04-05)
 
+
+### release
+
+* V 0.1.4 ([a410cea](https://github.com/neo9/n9-node-microservice-skeleton/commit/a410cea)) (Benjamin DANIEL)
 
 ### switch
 
