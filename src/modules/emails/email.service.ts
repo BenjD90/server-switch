@@ -78,7 +78,7 @@ export class EmailService {
 				// check if PC is off
 				if (await this.isServerOff()) {
 					this.logger.info(`Call server switch ON`);
-					await this.httpClient.get(`${this.conf.targetServer.switchOnUrl}`);
+					await this.httpClient.post(`${this.conf.targetServer.switchOnUrl}`);
 					this.switchOnCounter.inc(1);
 					delete this.currentTokens[token];
 				} else {
