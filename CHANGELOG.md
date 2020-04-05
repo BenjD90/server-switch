@@ -1,5 +1,18 @@
+## Version [0.1.4](https://github.com/neo9/n9-node-microservice-skeleton/compare/0.1.3...0.1.4) (2020-04-05)
+
+
+### switch
+
+* Change method to trigger action to switch on ([765bbde](https://github.com/neo9/n9-node-microservice-skeleton/commit/765bbde)) (Benjamin DANIEL)
+
+
+
 ## Version [0.1.3](https://github.com/neo9/n9-node-microservice-skeleton/compare/0.1.2...0.1.3) (2019-11-26)
 
+
+### release
+
+* V 0.1.3 ([f657715](https://github.com/neo9/n9-node-microservice-skeleton/commit/f657715)) (Benjamin Daniel)
 
 ### status
 
