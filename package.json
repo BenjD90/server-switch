@@ -57,7 +57,7 @@
     "@neo9/n9-node-utils": "^1.5.0",
     "fs-extra": "^8.1.0",
     "glob": "^7.1.2",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "n9-node-routing": "^1.11.1",
     "node-mailjet": "^3.3.1",
     "request-promise-native": "^1.0.5",
